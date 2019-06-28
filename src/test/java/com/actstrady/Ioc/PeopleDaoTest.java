@@ -13,13 +13,27 @@ import org.junit.Test;
  * @gitHub : https://github.com/ActStrady/spring-learn
  */
 public class PeopleDaoTest extends UnitTestBase {
+
+
     public PeopleDaoTest() {
         super("classpath*:spring-ioc.xml");
     }
 
     @Test
-    public void testIt() {
+    public void testList() {
         PeopleDaoImpl bean = super.getBean(PeopleDaoImpl.class);
-        bean.ListTest();
+        bean.beanList();
+    }
+
+    @Test
+    public void testSet() {
+        PeopleDaoImpl bean = super.getBean(PeopleDaoImpl.class);
+        bean.beanSet();
+    }
+
+    @Test
+    public void testMap() {
+        PeopleDaoImpl bean = super.getBean(PeopleDaoImpl.class);
+        bean.beanMap();
     }
 }

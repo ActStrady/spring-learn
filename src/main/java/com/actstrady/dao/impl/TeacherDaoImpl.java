@@ -1,6 +1,7 @@
 package com.actstrady.dao.impl;
 
 import com.actstrady.dao.PeopleDao;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,11 +10,7 @@ import org.springframework.stereotype.Component;
  * @fileName : TeacherDaoImpl.java
  * @gitHub : https://github.com/ActStrady/spring-learn
  */
+@Order(1)
 @Component
 public class TeacherDaoImpl implements PeopleDao {
-
-    @Override
-    public void show() {
-        System.out.println("TeacherDaoImpl");
-    }
 }

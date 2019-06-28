@@ -9,5 +9,4 @@ import java.sql.SQLOutput;
  * @gitHub : https://github.com/ActStrady/spring-learn
  */
 public interface PeopleDao {
-    public void show();
 }

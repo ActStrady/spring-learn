@@ -1,11 +1,14 @@
 package com.actstrady.dao.impl;
 
 import com.actstrady.dao.PeopleDao;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.test.context.support.TestPropertySourceUtils;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author : ActStrady@tom.com
@@ -15,22 +18,45 @@ import java.util.List;
  */
 @Component
 public class PeopleDaoImpl {
-    private final List<PeopleDao> peopleDaos;
+    private final List<PeopleDao> peopleDaoList;
+    private final Set<PeopleDao> peopleDaoSet;
+    private final Map<String, PeopleDao> peopleDaoMap;
 
     @Autowired
-    public PeopleDaoImpl(List<PeopleDao> peopleDaos) {
-        this.peopleDaos = peopleDaos;
+    public PeopleDaoImpl(List<PeopleDao> peopleDaoList, Set<PeopleDao> peopleDaoSet,
+                         Map<String, PeopleDao> peopleDaoMap) {
+        this.peopleDaoList = peopleDaoList;
+        this.peopleDaoSet = peopleDaoSet;
+        this.peopleDaoMap = peopleDaoMap;
     }
 
-    @Test
-    public void ListTest() {
-        if (null != peopleDaos) {
-            for (PeopleDao people : peopleDaos) {
-                people.show();
-                System.out.println(people.getClass().getName() + "" + people.hashCode());
+    public void beanList() {
+        if (null != peopleDaoList) {
+            for (PeopleDao people : peopleDaoList) {
+                System.out.println(people + ":" + people.hashCode());
             }
         } else {
-            System.out.println("null !!!!!!");
+            System.out.println("List<PeopleDao>null!!!!!!");
+        }
+    }
+
+    public void beanSet() {
+        if (null != peopleDaoSet) {
+            for (PeopleDao people : peopleDaoSet) {
+                System.out.println(people + ":" + people.hashCode());
+            }
+        } else {
+            System.out.println("Set<PeopleDao>null!!!!!!");
+        }
+    }
+
+    public void beanMap() {
+        if (null != peopleDaoMap) {
+            for (Map.Entry<String, PeopleDao> entry : peopleDaoMap.entrySet()) {
+                System.out.println(entry.getKey() + ":" + entry.getValue());
+            }
+        } else {
+            System.out.println("Map<String, PeopleDao> peopleDaoMap null!!!!!!!!!!!!");
         }
     }
 }
